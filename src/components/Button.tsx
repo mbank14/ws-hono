@@ -1,10 +1,14 @@
-import type { FC } from 'hono/jsx';
+import { ButtonProps } from './Button.types';
 
-export const Button: FC<{text: string}> = (props: { text: string}) =>{
+export const Button = (props: ButtonProps) =>{
 
     return (
         <>
-            
+            <div>
+                <a href={props.link? props.link : "#"}>
+                    {props.text}
+                </a>
+            </div>
         </>
     )
 }

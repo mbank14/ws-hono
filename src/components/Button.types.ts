@@ -8,6 +8,7 @@ export interface ButtonProps {
     isActive?: boolean;
     fullWidth? :boolean;
     icon?: ReactNode;
+    link?: string;
 
     size: "small" | "medium" | "large";
     variant: "primary" | "secondary" | "danger";

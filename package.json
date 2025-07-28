@@ -1,7 +1,7 @@
 {
   "name": "ws-hono",
   "scripts": {
-    "dev": "bun run --hot src/index.ts"
+    "dev": "bun run --hot src/index.tsx"
   },
   "dependencies": {
     "hono": "^4.8.9"
