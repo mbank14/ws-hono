@@ -10,7 +10,7 @@ export const Layout = (props: { children?: any; text: string }) => {
 
         <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/mini.global.js"></script>
       </head>
-      <body>{props.children}</body>
+      <body class={`bg-stone-100`}>{props.children}</body>
     </html>
   );
 };
