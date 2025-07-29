@@ -1,4 +1,4 @@
-import { FC } from "hono/jsx";
+
 
 export const Layout = (props: { children?: any; text: string }) => {
   return (
@@ -10,7 +10,7 @@ export const Layout = (props: { children?: any; text: string }) => {
 
         <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/mini.global.js"></script>
       </head>
-      <body class={`bg-stone-100`}>{props.children}</body>
+      <body class={`h-full bg-stone-100 flex flex-col items-center justify-center w-full p-0 m-0`}>{props.children}</body>
     </html>
   );
 };

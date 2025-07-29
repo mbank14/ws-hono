@@ -2,13 +2,14 @@ import { ReactNode } from "hono/jsx";
 
 
 export interface ButtonProps {
-    text: string;
+    label: string;
+    id?:string;
     
-    isDisabled?: boolean;
+    disabled?: boolean;
     isActive?: boolean;
     fullWidth? :boolean;
     icon?: ReactNode;
-    link?: string;
+    href?: string;
 
     size: "small" | "medium" | "large";
     variant: "primary" | "secondary" | "danger";
