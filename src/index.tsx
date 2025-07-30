@@ -41,8 +41,10 @@ app.get("/", (c) => {
   return c.html(<HomePage />);
 });
 app.get("/play/:name", (c) => {
-  return c.html(<RoomPage />);
+  const name = c.req.param("name");
+  return c.html(<RoomPage roomName={name} />);
 });
+
 app.route("/ws", room);
 
 export default {
