@@ -6,6 +6,8 @@ import { serveStatic } from "hono/bun";
 import { cors } from "hono/cors";
 // import { poweredBy } from 'hono/powered-by';
 
+import room, { websocket } from './room.ws'
+
 const app = new Hono();
 app.use(
   "/*",
@@ -20,10 +22,10 @@ app.use(
 app.use(jsxRenderer());
 // app.use("*", poweredBy());
 
-app.use("*", async (c, next) => {
-  console.log("URL requested:", c.req.path);
-  await next();
-});
+// app.use("*", async (c, next) => {
+//   console.log("URL requested:", c.req.path);
+//   await next();
+// });
 
 app.use(
   "/js/*",
@@ -41,5 +43,9 @@ app.get("/", (c) => {
 app.get("/play/:name", (c) => {
   return c.html(<RoomPage />);
 });
+app.route("/ws", room);
 
-export default app;
+export default {
+  fetch: app.fetch,
+  websocket
+};

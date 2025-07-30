@@ -7,18 +7,22 @@ const room = new Hono()
 
 const { upgradeWebSocket, websocket} = createBunWebSocket<ServerWebSocket>() 
 
-room.get('/ws',
+room.get('/play',
     upgradeWebSocket((c)=> {
         return {
-            onOpen(evt, ws){},
-            onMessage(evt, ws){},
+            onOpen(evt, ws){
+                console.log("Connected ");
+                ws.send(JSON.stringify({message: "Hello from server !"}));
+            },
+            onMessage(evt, ws){
+                console.log(evt.data);
+            },
+            onClose(evt, ws){},
             onError(evt, ws){}
         }
     })
 );
 
 
-export default {
-    room,
-    websocket
-}
+export default room;
+export { websocket}; 
